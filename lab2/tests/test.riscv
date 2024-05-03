@@ -1,0 +1,4 @@
+addi x0, x0, 10         # Add 10 to register 0
+addi x1, x1, 64         # Add 64 to register 1
+sw x0, 8(x1)            # Use register 1 and 0 to store word
+ecall x0, x0, 0         # Halt the simulation

@@ -1,0 +1,50 @@
+Added instructions:
+	add, addi, and, andi, beq, jal, lw, or, ori, slt, slti, sub, sw
+
+Add:
+	auipc, bge, bgeu, blt, bltu, bne, jalr, lb, lbu, lh, lhu, lui,
+	sb, sh, sll, slli, sltiu, sltu, sra, srai, srl, srli, xor, xori
+
+RegWrite:
+	0 - No write
+	1 - Write result
+
+ImmSrc:
+	00 - I-type
+	01 - S-type
+	10 - B-type
+	11 - J-type
+
+ALUSrc (SrcB):
+	0 - rs2
+	1 - ImmExt
+
+MemWrite:
+	0 - Read ReadData from DataAdr (ALUResult)
+	1 - Write WriteData to DataAdr (ALUResult)
+
+ResultSrc:
+	00 - ALUResult
+	01 - ReadData
+	10 - PCPlus4
+	11 - ImmExt
+	100- PCPlusImm
+
+Branch:
+	1 - Branch conditionally
+
+ALUOp (complex)
+	00 - addition
+	01 - subtraction
+	else - dependent on funct3/funct7
+
+Jump:
+	1 - Jump unconditionally
+
+
+Added datapaths:
+	MSBExtend added to ALU to account for msb-extends instructions
+	ResultMask added to mask save and load operations under 32bits
+	Alignment specifier for dmem unit to handle different sized r/w
+	Created memdec (memory decoder) to specify alignment and extends
+	Added ResultSrc for PCPlusImm and Imm passthrough

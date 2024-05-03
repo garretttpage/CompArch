@@ -1,0 +1,11 @@
+Forwarded funct3D to funct3E for use with B-type instructions
+Changed PCSrcE to handle all B-type instructions
+Added memdec (memory decoder) from lab 2
+Updated dmem to handle alignment and write masking to implement load/store instructions
+
+ResultSrc:
+	000 - ALUResult
+	001 - ReadData
+	110 - PCPlus4
+	011 - ImmExt
+	100- PCPlusImm
